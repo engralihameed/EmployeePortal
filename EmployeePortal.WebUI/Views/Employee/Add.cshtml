@@ -1,0 +1,42 @@
+﻿@model EmployeeModel
+
+@{
+    ViewData["Title"] = "Add Employee";
+}
+<div class="card">
+    <div class="card-header">
+        Add Employee
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-controller="Employee" asp-action="Add" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input asp-for="Name" type="text" class="form-control" placeholder="Enter name" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select id="department" class="custom-select form-control" asp-for="Department.Id" asp-items="@ViewBag.Departments"></select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="employeenumber">Employee Number:</label>
+                        <input asp-for="EmployeeNumber" type="text" class="form-control" placeholder="Enter Employee Number" id="employeenumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobdescription">Job Description:</label>
+                        <input asp-for="JobDescription" type="text" class="form-control" placeholder="Enter job description" id="jobdescription">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeType">Employee Type:</label>
+                        <select id="employeeType" class="custom-select form-control" asp-for="EmployeeType.Id" asp-items="@ViewBag.EmployeeTypes"></select>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    <a class="btn btn-secondary btn-sm" asp-controller="Employee" asp-action="Index">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

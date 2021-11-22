@@ -1,0 +1,34 @@
+﻿@model EmployeeModel
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+<div class="card">
+    <div class="card-header">
+       Employee Details
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                @{
+                    if (Model != null)
+                    {
+                        <h4>@Model.Name</h4>
+                        <p>Employee Number: @Model.EmployeeNumber</p>
+                        <p>Department: @Model.Department.Name</p>
+                        <p>Job Description: @Model.JobDescription</p>
+                        <p>Employee Type: @Model.EmployeeType.Description</p>
+                        <p>Hourly Pay: @Model.HourlyPay</p>
+                        <p>Bonus: @Model.Bonus</p>
+                    }
+                }
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-secondary btn-sm" asp-controller="Employee" asp-action="Index">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
